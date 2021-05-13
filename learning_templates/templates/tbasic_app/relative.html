@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+{% extends "tbasic_app/base.html" %}
+{% block body_block %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>relative page </title>
+  </head>
+  <body>
+    <h1>welcome to relative pagae</h1>
+    <!-- now from here we will start our relative urls part -->
+
+    <!-- well this is what we use to do before  -->
+
+     <a href="mbasic_app/other.html">link to other page 1</a>
+     <h2>this is not so good practice as this overlap the previour link</h2>
+     <!-- or -->
+     <a href="http://127.0.0.1:8000/mbasic_app/other/">link to other page 2</a>
+     <h2>this is quite good practice as it takes the the url link as initial stage</h2>
+
+    <!-- but now we will do this as relative urls -->
+    <a href="{% url 'mbasic_app:name_other' %}">link to other page 3(template taging)</a>
+
+    <!-- here mbasic_app is from app's urls.py aap_name ="mbasic_app" and the name other is
+    name we specify while giving the path of the particular page -->
+    <!-- this is how we add admin page via relative urls  -->
+    <a href="{% url 'admin:index' %}">click here to go to admin page 1</a>
+    <h2>for admin page</h2>
+    <a href="{% url 'main page' %}">click to go to index page 2</a>
+    <h2>for admin page 2</h2>
+  </body>
+</html>
+{% endblock %}
